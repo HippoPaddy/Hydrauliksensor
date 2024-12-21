@@ -10,7 +10,7 @@
 | Wenn der Füllstand über 100% steigt, leuchtet die Rote Lampe          | X    |        | HippoPaddy    |
 | Wenn der Füllstand zwischen 20 und 100% ist, leuchtet die grüne Lampe | X    |        | HippoPaddy    |
 | Der umgerechnete Füllstand wird digital als ganze Zahl angezeigt      |      | X      | HippoPaddy    |
-| //                                                                    |      | X      | HippoPaddy    |
+| Zusätzlich wird berechnet, ob wieder gleichviel zurückgeflossen ist   |      | X      | HippoPaddy    |
 
 
 ## Projektplan
