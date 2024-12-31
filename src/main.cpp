@@ -1,17 +1,12 @@
 #include <Arduino.h>
 
-//    Formeln;
-//    Füllstand [100%] = l*b*(h-7cm)
-//    Füllstand [20%]  = (l*b*(h-7cm))/5
-//    Füllstand [%]    =
+//    Formel;
+//    Füllstand [%]    = -1.887*distance+113.208
 
-
-//    Füllstand 100% ist bei hydsenshigh 7cm entfernt
-//    Füllstand 20% ist bei hydsenslow
 
 int hydsensemmit = 6;
 int hydsensekko = 7;
-// int hydsenslow = 5;
+
 int ledpinlow = 2;
 int ledpingood = 3;
 int ledpinover = 4;
@@ -21,20 +16,24 @@ float distance;
 
 
 void setup() {
-// write your initialization code here
+// Alle nötigen Pinmodes
+    // mit Hilfe von Isabel und https://projecthub.arduino.cc/lucasfernando/ultrasonic-sensor-with-arduino-complete-guide-284faf
 
     pinMode(ledpingood, OUTPUT);
     pinMode(ledpinlow, OUTPUT);
     pinMode(ledpinover, INPUT);
     pinMode(hydsensemmit, OUTPUT);
     pinMode(hydsensekko, INPUT);
-    // pinMode(hydsenslow, INPUT);
+
     Serial.begin(9600);
 
 }
 
 void loop() {
-// write your code here
+// Dieser Teil ist das Programm für den Sensor. Mit der Berechnung für die Distanzmessung
+    //https://projecthub.arduino.cc/lucasfernando/ultrasonic-sensor-with-arduino-complete-guide-284faf
+
+
     Serial.print ("digitalread ");
 
     Serial.println(digitalRead(hydsensekko));
@@ -50,33 +49,41 @@ void loop() {
     distance = (timing * 0.034) / 2;
 
 
-
+// Das Programm gibt die Distanz in cm aus
     Serial.print("Distance: ");
       Serial.print(distance);
       Serial.print("cm | ");
 
+// Bis hier vom Link
 
-float statehydsens = -1.887*distance+113.208 ;
-    // int hydsenslow = digitalRead(hydsenslow);
+    // Die Verzeigung wie Arduino vorgehen soll bei der gemessenen Distanz
+
+float statehydsens = -1.887*distance+113.208 ; // Formel für den Füllstand in Abhängigkeit der Distanz
+    //    Ist der Füllstand zwischen 20% und 100% leuchtet die grüne Lampe
     if (statehydsens <= 100 && statehydsens >= 20) {
         digitalWrite(ledpingood, HIGH);// Setzt den Digitalpin 2 auf HIGH = "Ein"
         digitalWrite(ledpinlow, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
         digitalWrite(ledpinover, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
     }
+    //    Ist der Füllstand > 100% leuchtet die blaue Lampe
     else if (statehydsens > 100 ) {
         digitalWrite(ledpingood, LOW);// Setzt den Digitalpin 2 auf LOW = "AUS"
         digitalWrite(ledpinlow, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
         digitalWrite(ledpinover, HIGH);// Setzt den Digitalpin 3 auf HIGH = "EIN"
     }
+    //    Ist der Füllstand unter 20% leuchtet die rote Lampe
 else {
     digitalWrite(ledpingood, LOW);// Setzt den Digitalpin 2 auf LOW = "AUS"
     digitalWrite(ledpinlow, HIGH);// Setzt den Digitalpin 3 auf HIGH = "EIN"
     digitalWrite(ledpinover, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
 }
 
-Serial.print("Der Oelstand betraegt: ");
+    // Was das Programm ausgeben soll
+    // auch mit hilfe des Programms im Link
+
+Serial.print("Der Oelstand betraegt: "); // Anzeige vom errechneten Füllstand
 Serial.println(statehydsens);
-delay(500);
+delay(3000); // Messinterval
 
 
 
