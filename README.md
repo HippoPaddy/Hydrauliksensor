@@ -32,9 +32,6 @@ Hauptsächlich besteht das Programm aber aus der Verzweigung welche Lampe bei we
 
 
 
-
-
-
 ## Projektbeschreibung
 Kurze Beschreibung der Vorgehensweise
 
@@ -68,3 +65,8 @@ Kurze Beschreibung der Vorgehensweise
 - Gibt es spezielle Gründe warum diese Tests gewählt wurden?
 - Ich habe schlechte Erfahrungen gemacht mit Arduino Komponenten, deswegen musste ich sie ersetzen und testen.
 - Ich war mir nicht sicher, ob der Sensor die Oberfläche des Öls erfasen kann.
+
+
+## Bilder und Videos von Tests
+
+[![Watch the video]()]()
