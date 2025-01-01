@@ -29,40 +29,44 @@ Hauptsächlich besteht das Programm aber aus der Verzweigung welche Lampe bei we
 
 
 
-
+![Flussdiagramm](./Flussdiagramm.png)
 
 
 ## Projektbeschreibung
 Kurze Beschreibung der Vorgehensweise
 
-- Welche Teilfunktionen habt ihr einzeln getestet?
+Welche Teilfunktionen habt ihr einzeln getestet?
 - Die einzelnen Funktionen, die getestet wurden, waren: das Programm, die Arduino Komponenten und ob der Sensor die Oberfläche des Öls erfassen kann
+<br/><br/>
 
-- Gab es dabei Probleme, wenn ja welche?
+Gab es dabei Probleme, wenn ja welche?
 - Beim Schreiben des Programms kamen einige Fehlermeldungen, die ich mithilfe von Isabel und dem Internet behoben habe.
 - Einzelne Arduino Komponenten, die nicht funktioniert haben. Diese habe ich ersetzen müssen.
+<br/><br/>
 
-
-- Konnten alle Muss-Anforderungen umgesetzt werden?
+Konnten alle Muss-Anforderungen umgesetzt werden?
 - Ja, alle
+<br/><br/>
 
-- War etwas unerwartet beim Schreiben des Programcodes?
+War etwas unerwartet beim Schreiben des Programcodes?
 - Ja. Ich wusste nicht, dass ich einen Pin für jeweils das Senden und Erfassen der Ultraschallwellen einfügen musste
 
 ## Tests
 Kurze Beschreibung der Vorgehensweise
 
-- Was sind die Testscenarios?
+Was sind die Testscenarios?
 - Programmtest: Funktioniert das Programm wie es soll?
 - Komponenten und Verkabelungstests: Ist alles richtig verkabelt und gibt das Programm anhand der erfassten Daten die Richtige Distanz an?
 - Aufnametest: Erkennt der Sensor die Oberfläche des Hydrauliköls?
+<br/><br/>
 
-- Beschreibung oder Bild das Testziel aufzeigt
+Beschreibung oder Bild das Testziel aufzeigt
 - Das Programm läuft wie es soll / gewollt ist.
 - Die Komponenten funktionierten nicht und haben Anfangs immer den Füllstand von 113.208% angezeigt (Distanz = 0cm)
 - Die Komponenten mussten zwar ersetzt werden, aber messen die Distanz und das Programm rechnet dies dann in die Distanz um.
-- 
-- Gibt es spezielle Gründe warum diese Tests gewählt wurden?
+<br/><br/>
+
+Gibt es spezielle Gründe warum diese Tests gewählt wurden?
 - Ich habe schlechte Erfahrungen gemacht mit Arduino Komponenten, deswegen musste ich sie ersetzen und testen.
 - Ich war mir nicht sicher, ob der Sensor die Oberfläche des Öls erfasen kann.
 
