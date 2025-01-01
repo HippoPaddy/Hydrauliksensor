@@ -70,4 +70,13 @@ Kurze Beschreibung der Vorgehensweise
 ## Bilder und Videos von Tests
 
 ### Programmtest Video:
-[![Programmtest](./GesamtbildProjekt.jpg)](./Programmtest.mp4)
+![Komponententest](./Komponententest.jpg)
+Video:
+![Programmtest](./Programmtest.mp4)
+
+### Funktionalitätstests: 
+![GesamtbildProjekt](./GesamtbildProjekt.jpg)
+Videos:
+![FunktionArduino](./FunktionArduino.mp4)
+![Messergebnisse](./Messergebnisse.mp4)
+![Messung](./Messung.mp4)
