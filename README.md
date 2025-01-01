@@ -27,7 +27,11 @@
 In diesem Flussdiagram wir mit dem Arduino Ultrasonic Sensor die Distanz zwischen des Sensors und der Flüssigkeit gemessen und umgerechnet.
 Hauptsächlich besteht das Programm aber aus der Verzweigung welche Lampe bei welchem Füllstand leuchten soll.
 
-
+<b>
+Zu beachten ist, dass die 100% bei einem Abstand von 7cm definiert worden ist.
+Dies dient als kleiner Sicherheitsabstand, damit der Tank nicht überläuft.
+</b>
+<br/><br/>
 
 ![Flussdiagramm](./Flussdiagramm.png)
 
