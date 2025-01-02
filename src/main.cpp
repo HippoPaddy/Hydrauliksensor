@@ -84,7 +84,6 @@ void loop() {
     else
         digitalWrite(ledpincompare, LOW);
 
-
     // Was das Programm ausgeben soll
     // auch mit hilfe des Programms im Link
 
