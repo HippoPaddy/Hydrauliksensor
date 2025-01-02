@@ -10,13 +10,14 @@ int hydsensekko = 7;
 int ledpinlow = 2;
 int ledpingood = 3;
 int ledpinover = 4;
+int ledpincompare = 8;
 float timing;
 float distance;
 
-
+float firstMesure = 0.0;
 
 void setup() {
-// Alle nötigen Pinmodes
+    // Alle nötigen Pinmodes
     // mit Hilfe von Isabel und https://projecthub.arduino.cc/lucasfernando/ultrasonic-sensor-with-arduino-complete-guide-284faf
 
     pinMode(ledpingood, OUTPUT);
@@ -26,15 +27,14 @@ void setup() {
     pinMode(hydsensekko, INPUT);
 
     Serial.begin(9600);
-
 }
 
 void loop() {
-// Dieser Teil ist das Programm für den Sensor. Mit der Berechnung für die Distanzmessung
+    // Dieser Teil ist das Programm für den Sensor. Mit der Berechnung für die Distanzmessung
     //https://projecthub.arduino.cc/lucasfernando/ultrasonic-sensor-with-arduino-complete-guide-284faf
 
 
-    Serial.print ("digitalread ");
+    Serial.print("digitalread ");
 
     Serial.println(digitalRead(hydsensekko));
 
@@ -48,45 +48,46 @@ void loop() {
     timing = pulseIn(hydsensekko, HIGH);
     distance = (timing * 0.034) / 2;
 
-
-// Das Programm gibt die Distanz in cm aus
+    // Das Programm gibt die Distanz in cm aus
     Serial.print("Distance: ");
-      Serial.print(distance);
-      Serial.print("cm | ");
+    Serial.print(distance);
+    Serial.print("cm | ");
 
-// Bis hier vom Link
+    // Bis hier vom Link
 
     // Die Verzeigung wie Arduino vorgehen soll bei der gemessenen Distanz
 
-float statehydsens = -1.887*distance+113.208 ; // Formel für den Füllstand in Abhängigkeit der Distanz
+    float statehydsens = -1.887 * distance + 113.208; // Formel für den Füllstand in Abhängigkeit der Distanz
     //    Ist der Füllstand zwischen 20% und 100% leuchtet die grüne Lampe
     if (statehydsens <= 100 && statehydsens >= 20) {
-        digitalWrite(ledpingood, HIGH);// Setzt den Digitalpin 2 auf HIGH = "Ein"
-        digitalWrite(ledpinlow, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
-        digitalWrite(ledpinover, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
+        digitalWrite(ledpingood, HIGH); // Setzt den Digitalpin 2 auf HIGH = "Ein"
+        digitalWrite(ledpinlow, LOW); // Setzt den Digitalpin 3 auf LOW = "AUS"
+        digitalWrite(ledpinover, LOW); // Setzt den Digitalpin 3 auf LOW = "AUS"
     }
     //    Ist der Füllstand > 100% leuchtet die blaue Lampe
-    else if (statehydsens > 100 ) {
-        digitalWrite(ledpingood, LOW);// Setzt den Digitalpin 2 auf LOW = "AUS"
-        digitalWrite(ledpinlow, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
-        digitalWrite(ledpinover, HIGH);// Setzt den Digitalpin 3 auf HIGH = "EIN"
+    else if (statehydsens > 100) {
+        digitalWrite(ledpingood, LOW); // Setzt den Digitalpin 2 auf LOW = "AUS"
+        digitalWrite(ledpinlow, LOW); // Setzt den Digitalpin 3 auf LOW = "AUS"
+        digitalWrite(ledpinover, HIGH); // Setzt den Digitalpin 3 auf HIGH = "EIN"
     }
     //    Ist der Füllstand unter 20% leuchtet die rote Lampe
-else {
-    digitalWrite(ledpingood, LOW);// Setzt den Digitalpin 2 auf LOW = "AUS"
-    digitalWrite(ledpinlow, HIGH);// Setzt den Digitalpin 3 auf HIGH = "EIN"
-    digitalWrite(ledpinover, LOW);// Setzt den Digitalpin 3 auf LOW = "AUS"
-}
+    else {
+        digitalWrite(ledpingood, LOW); // Setzt den Digitalpin 2 auf LOW = "AUS"
+        digitalWrite(ledpinlow, HIGH); // Setzt den Digitalpin 3 auf HIGH = "EIN"
+        digitalWrite(ledpinover, LOW); // Setzt den Digitalpin 3 auf LOW = "AUS"
+    }
+
+    if (firstMesure == 0.0)
+        firstMesure = statehydsens;
+    else if (firstMesure - statehydsens >= 5.0)
+        digitalWrite(ledpincompare, HIGH);
+    else
+        digitalWrite(ledpincompare, LOW);
 
     // Was das Programm ausgeben soll
     // auch mit hilfe des Programms im Link
 
-Serial.print("Der Oelstand betraegt: "); // Anzeige vom errechneten Füllstand
-Serial.println(statehydsens);
-delay(3000); // Messinterval
-
-
-
-
-
+    Serial.print("Der Oelstand betraegt: "); // Anzeige vom errechneten Füllstand
+    Serial.println(statehydsens);
+    delay(3600); // Messinterval
 }
