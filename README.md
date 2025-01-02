@@ -32,7 +32,7 @@ Zu beachten ist, dass die 100% bei einem Abstand von 7cm definiert worden ist.
 Dies dient als kleiner Sicherheitsabstand, damit der Tank nicht überläuft.
 </b>
 <br/><br/>
-Und die Abweichung wird alle 24h gemessen. Diese darf 5% nicht überschreiten.
+Und die Abweichung wird alle 24h gemessen. Diese soll im Idealfall 5% nicht überschreiten.
 <br/><br/>
 
 ![Flussdiagramm](./Flussdiagramm.png)
