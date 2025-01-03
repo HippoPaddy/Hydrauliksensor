@@ -40,6 +40,13 @@ Und die Abweichung wird alle 24h gemessen. Diese soll im Idealfall 5% nicht übe
 
 ## Projektbeschreibung
 Kurze Beschreibung der Vorgehensweise
+<br/><br/
+- Zuerst schreibe ich das Programm soweit, damit ich noch die Komponenten einfügen und verkabeln kann.
+- Dann teste ich das Programm und Komponenten auf Funktionalität.
+- Anschliessend erarbeite ich die Wunschkriterien.
+- Zuletzt schliesse sämtliche Dokumentation ab.
+<br/><br/>
+
 
 Welche Teilfunktionen habt ihr einzeln getestet?
 - Die einzelnen Funktionen, die getestet wurden, waren: das Programm, die Arduino Komponenten und ob der Sensor die Oberfläche des Öls erfassen kann
