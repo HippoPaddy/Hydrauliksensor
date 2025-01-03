@@ -76,10 +76,10 @@ void loop() {
         digitalWrite(ledpinlow, HIGH); // Setzt den Digitalpin 3 auf HIGH = "EIN"
         digitalWrite(ledpinover, LOW); // Setzt den Digitalpin 3 auf LOW = "AUS"
     }
-
+//Verzweigung für Ölstandsvergleich
     if (firstMesure == 0.0)
         firstMesure = statehydsens;
-    else if (firstMesure - statehydsens >= 5.0)
+    else if (firstMesure - statehydsens <= 5.0)
         digitalWrite(ledpincompare, HIGH);
     else
         digitalWrite(ledpincompare, LOW);
@@ -89,5 +89,5 @@ void loop() {
 
     Serial.print("Der Oelstand betraegt: "); // Anzeige vom errechneten Füllstand
     Serial.println(statehydsens);
-    delay(3600); // Messinterval
+    delay(86400000); // Messinterval
 }
