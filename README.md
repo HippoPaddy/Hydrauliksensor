@@ -40,7 +40,8 @@ Und die Abweichung wird alle 24h gemessen. Diese soll im Idealfall 5% nicht übe
 
 ## Projektbeschreibung
 Kurze Beschreibung der Vorgehensweise
-<br/><br/
+<br/><br/>
+
 - Zuerst schreibe ich das Programm soweit, damit ich noch die Komponenten einfügen und verkabeln kann.
 - Dann teste ich das Programm und Komponenten auf Funktionalität.
 - Anschliessend erarbeite ich die Wunschkriterien.
