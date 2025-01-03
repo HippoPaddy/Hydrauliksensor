@@ -48,6 +48,7 @@ Welche Teilfunktionen habt ihr einzeln getestet?
 Gab es dabei Probleme, wenn ja welche?
 - Beim Schreiben des Programms kamen einige Fehlermeldungen, die ich mithilfe von Isabel und dem Internet behoben habe.
 - Einzelne Arduino Komponenten, die nicht funktioniert haben. Diese habe ich ersetzen müssen.
+- Die Lampe für den Vergleich, falls der Füllstand sich um mehr als 5% veränder, funktioniert, leider nur sehr schwach.
 <br/><br/>
 
 Konnten alle Muss-Anforderungen umgesetzt werden?
@@ -56,6 +57,7 @@ Konnten alle Muss-Anforderungen umgesetzt werden?
 
 War etwas unerwartet beim Schreiben des Programcodes?
 - Ja. Ich wusste nicht, dass ich einen Pin für jeweils das Senden und Erfassen der Ultraschallwellen einfügen musste
+  
 
 ## Tests
 Kurze Beschreibung der Vorgehensweise
